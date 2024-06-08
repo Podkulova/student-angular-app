@@ -1,35 +1,42 @@
 <section>
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name and surname</th>
-          <th>E-mail address</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let student of students">
-          <td>{{student.id}}</td>
-          <td>{{student.name}}</td>
-          <td>
-            <a href="mailto:{{student.email}}">{{student.email}}</a>
-          </td>
-          <td>
-            <a [routerLink]="'/edit/' + student.id" class="button button-green">Edytuj</a>
-            <button class="button button-red" (click)="delete(student)">Usuń</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>  
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name and surname</th>
+        <th>Username</th>
+        <th>E-mail address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.username}}</td>
+        <td>
+          <a href="mailto:{{student.email}}">{{student.email}}</a>
+        </td>
+        <td>
+          <a routerLink="/edit/{{student.id}}" class="button button-green">Edit</a>
+          <button class="button button-red" (click)="delete(student)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
     <div class="new-student">
      <h2>Add a new student</h2>
      <label for="name">Name and surname:</label>
      <input type="text" id="name" #name>
 
+     <label for="username">Username</label>
+     <input type="text" id="username" #username>
+
       <label for="email">E-mail address:</label>
       <input type="email" id="email" #email>
 
-   <button (click)="add(name.value, email.value); name.value=''; email.value=''">Dodaj</button>
+      <button (click)="add(name.value, email.value, username.value);">
+        Dodaj
+      </button>
   </div>
   </section>

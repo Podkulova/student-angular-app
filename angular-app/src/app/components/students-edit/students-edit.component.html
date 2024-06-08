@@ -15,4 +15,9 @@
       <button (click)="goBack()" class="button">Cancel</button>
       <button (click)="save()" class="button button-green">Save</button>
     </div>
+
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="student.username">
+    </div>
 </form>

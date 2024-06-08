@@ -27,13 +27,14 @@ export class StudentsComponent implements OnInit {
     this.studentService.deleteStudent(student).subscribe();
   }
 
-  add(name: string, email: string): void {
+  add(name: string, email: string, username: string): void {
     // Removing white characters from the data
     name = name.trim();
     email = email.trim();
+    username = username.trim();
     
     // Cease execution when fields are empty
-    if (!name || !email) {
+    if (!name || !email || !username) {
       return;
     }
     
@@ -43,9 +44,10 @@ export class StudentsComponent implements OnInit {
     }
     
     // Upload data to server and update local table
-    this.studentService.addStudent({ name, email } as Student)
+    this.studentService.addStudent({ name, email, username } as Student)
       .subscribe(student=> {
         this.students.push(student);
       });
   }  
+
 }

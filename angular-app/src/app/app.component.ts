@@ -13,3 +13,9 @@ import { StudentEditComponent } from './components/students-edit/students-edit.c
 export class AppComponent {
   title : string = 'angular-app';
 }
+export interface Student {
+  id: number;
+  name: string;
+  email: string;
+  username: string;
+}
