@@ -4,6 +4,7 @@ import { StudentService } from '../../services/student.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 
 
@@ -41,7 +42,7 @@ export class StudentEditComponent implements OnInit {
   }
 
   goBack(): void {
-    window.history.back();
+   this.location.back();
   }
 
   save(): void {
